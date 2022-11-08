@@ -1,0 +1,14 @@
+@import 'global.css';
+
+main{
+    width: 100vw;
+    height: 100vh;
+}
+
+header{
+    width: 100vw;
+
+}
+header > a > img{
+    height: 65px;
+}

@@ -1,0 +1,7 @@
+#captcha{
+    width: 100px;
+    height: 100px;
+}
+#captcha:hover{
+    outline: 1px solid red;
+}
