@@ -2,11 +2,11 @@
     session_start();
     include('sql/database.php');
 
-    if (!$_SESSION['enter']) {
-        header('Location: login.php');
-        printf("Error: %s\n", mysqli_error($conn));
-        exit();
-    }
+    // if (!$_SESSION['enter']) {
+    //     header('Location: login.php');
+    //     printf("Error: %s\n", mysqli_error($conn));
+    //     exit();
+    // }
 
     $login = $_SESSION['login'];
     $login_id = $_SESSION['login_id'];
@@ -29,10 +29,10 @@
 <body>
 
     <nav class="gorny">
-        <a href="">Placeholder</a>
-        <a href="">Placeholder</a>
-        <a href="">Placeholder</a>
-        <a href="">Placeholder</a>
+        <a href="">Szablony</a>
+        <a href="">Moje sprawy</a>
+        <a href="">Motyw</a>
+        <a href="">Ustawienia</a>
         <a href="login.php">
             <button>Wyloguj</button>
         </a>
@@ -41,15 +41,15 @@
     <header>
             <nav>
                 <a href="login.php">
-                    <img src="" alt="Alior bank">
+                    <img src="zdjecia/alior-logo.svg" alt="Alior bank">
                 </a>
 
 
-                <a href="" class="arrow">Placeholder</a>
-                <a href="" class="arrow">Placeholder <i class="fa-solid fa-chevron-down"></i></a>
-                <a href="" class="arrow">Placeholder <i class="fa-solid fa-chevron-down"></i></a>
-                <a href="" class="arrow">Placeholder <i class="fa-solid fa-chevron-down"></i></a>
-                <a href="" class="arrow">Placeholder <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="" class="arrow">Pulpit</a>
+                <a href="" class="arrow">Płatności <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="" class="arrow">Oferty <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="" class="arrow">Usługi <i class="fa-solid fa-chevron-down"></i></a>
+                <a href="" class="arrow">Alior Mobile <i class="fa-solid fa-chevron-down"></i></a>
             </nav>
 
         </header>

@@ -23,43 +23,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-        <link rel="stylesheet" href="styles/LogNPass.css">
-        <link rel="stylesheet" href="styles/tymczasowypass.css">
+        <link rel="stylesheet" href="styles/pass.css">
 </head>
 <body>
+<main>
+    <!-- góra -->
+        <header>
+            <a href="login.php">
+                <img src="zdjecia/alior-logo.svg" alt="Alior bank">
+            </a>
+            <p>Zaloguj się</p>
+        </header>
+    <!-- Wszystko po srodku, inputy itd -->
+        <section>
+            <div class="">
+                <div>
+                    <p>Witamy w Alior Banku!</p>
+                </div>
+                <!-- tutaj formularz -->
+                <form method="post">
+                    <label for="PASS" id="FormTitle">Password</label>
+                    <input type="password" name="PASS" placeholder="wprowadź password">
+                        <br><br>
+
+                        <?php
+                            $images = [];
+                            $i = 0;
+                            $sql = 'SELECT id, obraz_zabezpieczajacy FROM zabezpieczenia';
+                            $sample = mysqli_query($conn,$sql);
+                            while ($row = mysqli_fetch_array($sample)) {
+                                $temp = "zdjecia/".$row[1]; 
+                                
+                                $images[$i] = array($row[0], $temp);
+                                $i += 1;
+                            }
+                            $indexes = [];
+                            shuffle($images);
+                                foreach ($images as $img => $value) {
+                                    echo "<label>
+                                            <input type='radio' name='INDEX' value='$value[0]'>
+                                            <img src=".$value[1]." alt='' id='captcha'>
+                                        </label>";
+
+
+                                    array_push($indexes, $value[0]);
+                            }
+                        ?>
+
+                        <br><br>
+                        <input type="submit" value="DALEJ" name="SubValuesIn">
+                </form>
+            </div>
+            <div></div>
+        </section>
+    <!-- jakies cosie do byly na dole -->
+        <footer>
+
+        </footer>
+    </main>    
+
+
     
-    <form method="post">
-    <label for="PASS" id="FormTitle">Password</label>
-    <input type="password" name="PASS" placeholder="wprowadź password">
-        <br><br>
-
-        <?php
-            $images = [];
-            $i = 0;
-            $sql = 'SELECT id, obraz_zabezpieczajacy FROM zabezpieczenia';
-            $sample = mysqli_query($conn,$sql);
-            while ($row = mysqli_fetch_array($sample)) {
-                $temp = "zdjecia/".$row[1]; 
-                
-                $images[$i] = array($row[0], $temp);
-                $i += 1;
-            }
-            $indexes = [];
-            shuffle($images);
-                foreach ($images as $img => $value) {
-                    echo "<label>
-                            <input type='radio' name='INDEX' value='$value[0]'>
-                            <img src=".$value[1]." alt='' id='captcha'>
-                        </label>";
-
-
-                    array_push($indexes, $value[0]);
-            }
-        ?>
-
-        <br><br>
-        <input type="submit" value="DALEJ" name="SubValuesIn">
-    </form>
 
 
     

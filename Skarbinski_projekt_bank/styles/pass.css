@@ -1,0 +1,15 @@
+@import 'global.css';
+
+#captcha{
+    width: 100px;
+    height: 100px;
+}
+#captcha:hover{
+    outline: 2px solid red;
+}
+input[type=radio]:checked #captcha{
+    outline: 2px solid red;
+}
+input[type=radio]{
+    display: none;
+}
